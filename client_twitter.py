@@ -1,4 +1,5 @@
-from pyspark.sql import SparkSession
+from pyspark.sql import SparkSession, functions as f
+import pandas as pd
 
 spark = SparkSession.builder.appName('SparkStreaming').getOrCreate()
 lines = spark.readStream\
@@ -7,9 +8,12 @@ lines = spark.readStream\
     .option('port', 9009)\
     .load()
     
-query = lines.writeStream\
-    .outputMode('append')\
+words = lines.select(f.explode(f.split(lines.value, ' ')).alias('word'))
+words_counts = words.groupBy('word').count()
+    
+query = words_counts.writeStream\
+    .outputMode('complete')\
     .format('console')\
     .start()
-    
+
 query.awaitTermination()

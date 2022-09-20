@@ -1,0 +1,3 @@
+v1
+{"path":"file:///home/ronald/Documentos/GitHub/Spark/csv/part-00000-05be7220-126e-48e8-9697-a360af73b646-c000.csv","size":232,"isDir":false,"modificationTime":1663701929036,"blockReplication":1,"blockSize":33554432,"action":"add"}
+{"path":"file:///home/ronald/Documentos/GitHub/Spark/csv/part-00001-d419b2c3-612e-44a0-b7c3-8a24157c9b00-c000.csv","size":6,"isDir":false,"modificationTime":1663701929012,"blockReplication":1,"blockSize":33554432,"action":"add"}
